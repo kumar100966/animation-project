@@ -1,0 +1,33 @@
+*{
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%
+}
+
+body{
+    font-size: $normal-text; 
+    background: $background-color;
+    color: $font-color; 
+}
+
+a, button, label, input, li, ul, p{
+    color: $font-color; 
+}
+
+button{
+    border: 1px solid white; 
+    background-color: $background-color; 
+}
+
+@mixin flex($direction:auto, $justify:auto, $align:auto){
+    display: flex; 
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+
