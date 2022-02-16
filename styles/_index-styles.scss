@@ -2,16 +2,22 @@ header.main{
     min-height: 10vh; 
     @include flex(row, space-between, center); 
     padding: 0 5%; 
-
-    h1{
-        text-decoration: underline;
-    }
 }
+
+h1{
+    text-decoration: underline;
+    position: relative;
+    z-index: 2;
+}
+
+// Nav bar
 
 .nav-toggle{
     width: 5rem; 
     @include flex(column, center, center); 
     border: none; 
+    position: relative;
+    z-index: 2;
 }
 
 .nav-toggle div{
@@ -24,13 +30,68 @@ header.main{
     margin-bottom: 7px; 
 }
 
+.nav-container{
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    z-index: 1;
+    height: 100vh;
+    width: 100vw; 
+    background: white; 
+    color: black; 
+    @include flex(column, flex-end); 
+    ul, li, a, p{ 
+        color: inherit; 
+    }
+}
 
-// .nav-toggle div:nth-child(1){
-//     transform: translateY(5px) rotate(45deg);
-// }
-// .nav-toggle div:nth-child(2){
-//     transform: translateY(-5px) rotate(-45deg);
-// }
+nav{
+    padding: 0 5%; 
+    min-height: 90vh; 
+    @include flex(row, space-between);
+    ul{
+        flex:0 1 60rem; 
+        @include flex(column, center, center); 
+        font-size: $header-2;
+        li{
+            width: 60%; 
+            text-align: start;
+            padding: 4rem; 
+        }
+    }
+
+    .nav-desc{
+        flex:0 1 60rem; 
+        align-self: center;
+        header{
+            font-size: $header-2;
+            padding-bottom: 3rem; 
+        }
+    }
+}
+
+h1.active{
+    color: black; 
+}
+
+.nav-toggle.active{
+    background-color: white; 
+    div{
+        background-color: black; 
+    }
+
+    & div:nth-child(1){
+        transform: translateY(5px) rotate(45deg);
+    }
+    & div:nth-child(2){
+        transform: translateY(-5px) rotate(-45deg);
+    }
+}
+
+
+
+
+// Main Content Section
 
 .body{
     padding: 0 5%; 
