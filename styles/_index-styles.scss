@@ -1,4 +1,5 @@
-.main{
+header.main{
+    min-height: 10vh; 
     @include flex(row, space-between, center); 
     padding: 0 5%; 
 
@@ -30,3 +31,34 @@
 // .nav-toggle div:nth-child(2){
 //     transform: translateY(-5px) rotate(-45deg);
 // }
+
+.body{
+    padding: 0 5%; 
+    @include flex(row, space-between); 
+    min-height: 90vh;
+
+}
+
+.img-container, .content{
+    flex: 0 1 60rem;   
+}
+
+.img-container{
+    align-self: center;
+}
+
+.content{
+    margin-right: 10rem; 
+    @include flex(column, center, flex-start);   
+    p{
+        margin: 3rem 0; 
+    }
+
+    button{
+        height: 5rem;
+        width: 10rem; 
+    }
+}
+
+
+

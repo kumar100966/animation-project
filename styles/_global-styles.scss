@@ -14,6 +14,15 @@ body{
     color: $font-color; 
 }
 
+h1{
+    font-size: $header-1;
+}
+
+h2{
+    font-size: $header-2;
+    line-height: 1.5;
+}
+
 a, button, label, input, li, ul, p{
     color: $font-color; 
 }
@@ -21,6 +30,13 @@ a, button, label, input, li, ul, p{
 button{
     border: 1px solid white; 
     background-color: $background-color; 
+    cursor: pointer;
+}
+
+img{
+    height: 100%;
+    width: 100%; 
+    object-fit: cover;
 }
 
 @mixin flex($direction:auto, $justify:auto, $align:auto){
