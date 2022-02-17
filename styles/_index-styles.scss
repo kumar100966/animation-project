@@ -1,6 +1,6 @@
 header.main{
     min-height: 10vh; 
-    @include flex(row, space-between, center); 
+    @include flex(row, space-between); 
     padding: 0 5%; 
 }
 
@@ -9,6 +9,11 @@ h1{
     position: relative;
     z-index: 2;
 }
+
+h1.active{
+    color: black; 
+}
+
 
 // Nav bar
 
@@ -20,11 +25,27 @@ h1{
     z-index: 2;
 }
 
+
+.nav-toggle.active{
+    background-color: white; 
+    div{
+        background-color: black; 
+    }
+
+    & div:nth-child(1){
+        transform: translateY(5px) rotate(45deg);
+    }
+    & div:nth-child(2){
+        transform: translateY(-5px) rotate(-45deg);
+    }
+}
+
 .nav-toggle div{
     background: white;
     width: 4rem; 
     height: .4rem;
     pointer-events: none;
+    transition: transform .5s ease; 
 }
 
 .nav-toggle div:nth-child(1){
@@ -42,6 +63,7 @@ h1{
     background: white; 
     color: black; 
     transition: all 1s ease; 
+    clip-path: circle(50px at 100% -10%); 
     @include flex(column, flex-end); 
     ul, li, a, p{ 
         color: inherit; 
@@ -78,24 +100,6 @@ nav{
     }
 }
 
-h1.active{
-    color: black; 
-}
-
-.nav-toggle.active{
-    background-color: white; 
-    div{
-        background-color: black; 
-    }
-
-    & div:nth-child(1){
-        transform: translateY(5px) rotate(45deg);
-    }
-    & div:nth-child(2){
-        transform: translateY(-5px) rotate(-45deg);
-    }
-}
-
 
 
 
@@ -110,10 +114,19 @@ h1.active{
 
 .img-container, .content{
     flex: 0 1 60rem;   
+    position:relative; 
 }
 
 .img-container{
     align-self: center;
+}
+.cover{
+    position: absolute; 
+    top:0; 
+    left:0; 
+    height: 100%;
+    width: 100%; 
+    background: $background-color; 
 }
 
 .content{
@@ -129,5 +142,15 @@ h1.active{
     }
 }
 
+.forest-span{
+    color: rgb(86, 124, 228); 
+}
+
+.hike-span{
+    color: rgb(167, 110, 231); 
+}
+.fashion-span{
+    color: rgb(255, 139, 93); 
+}
 
 
