@@ -4,6 +4,7 @@ const logo = mainHeaderChildren[0];
 const navButton = mainHeaderChildren[1];
 const navOverlay = mainHeaderChildren[2];
 const slides = document.querySelectorAll(".body");
+const mouseCursor = document.querySelector(".mouse-cursor");
 
 let sceneController = new ScrollMagic.Controller();
 
@@ -43,6 +44,7 @@ for (let i = 0; i < slides.length; i++) {
   const coversScene = new ScrollMagic.Scene({
     triggerElement: slides[i],
     triggerHook: "onCenter",
+    reverse: false,
   });
   coversScene.setTween(removeCoversTimeline);
   // coversScene.addIndicators({
@@ -58,8 +60,8 @@ for (let i = 0; i < slides.length; i++) {
   const fadeTimeline = gsap.timeline();
   fadeTimeline.fromTo(
     slides[i],
-    { scale: 1, opacity: 1, y: "0%" },
-    { scale: 0, opacity: 0, duration: 1, y: "-100%" }
+    { scale: 1, opacity: 1 },
+    { scale: 0, opacity: 0, duration: 1 }
   );
 
   const fadeScene = new ScrollMagic.Scene({
@@ -76,3 +78,26 @@ for (let i = 0; i < slides.length; i++) {
   // });
   sceneController.addScene(fadeScene);
 }
+
+window.addEventListener("mousemove", cursor);
+
+function cursor(e) {
+  mouseCursor.style.top = `${e.pageY}px`;
+  mouseCursor.style.left = `${e.pageX}px`;
+}
+
+logo.addEventListener("mouseover", () => {
+  logo.classList.add("active");
+});
+
+logo.addEventListener("mouseleave", () => {
+  logo.classList.remove("active");
+});
+
+navButton.addEventListener("mouseover", () => {
+  navButton.classList.add("hover");
+});
+
+navButton.addEventListener("mouseleave", () => {
+  navButton.classList.remove("hover");
+});
