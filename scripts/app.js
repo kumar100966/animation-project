@@ -4,7 +4,11 @@ const logo = mainHeaderChildren[0];
 const navButton = mainHeaderChildren[1];
 const navOverlay = mainHeaderChildren[2];
 const slides = document.querySelectorAll(".body");
+const exploreButtons = [...slides].map((slide) =>
+  slide.querySelector("button")
+);
 const mouseCursor = document.querySelector(".mouse-cursor");
+// const colorOverlays = document.querySelector(".color-swipe");
 
 let sceneController = new ScrollMagic.Controller();
 
@@ -100,4 +104,17 @@ navButton.addEventListener("mouseover", () => {
 
 navButton.addEventListener("mouseleave", () => {
   navButton.classList.remove("hover");
+});
+
+exploreButtons.forEach((button, i) => {
+  let colorOverlayTween;
+  button.addEventListener("mouseover", () => {
+    mouseCursor.style.color = "black";
+    colorOverlay = slides[i].querySelector(".color-swipe");
+    colorOverlayTween = gsap.to(colorOverlay, { y: "-100%", duration: 1 });
+  });
+  button.addEventListener("mouseleave", () => {
+    mouseCursor.style.color = "white";
+    colorOverlayTween.reverse();
+  });
 });

@@ -15,7 +15,6 @@ body {
   color: white;
   font-family: 'Montserrat', sans-serif;
   overflow-x: hidden;
-  cursor: none;
 }
 
 h1 {
@@ -27,6 +26,7 @@ h2 {
   font-size: 4.8rem;
   line-height: 1.5;
   font-family: 'Abril Fatface', cursive;
+  position: relative;
 }
 
 a, button, label, input, li, ul, p {
@@ -149,6 +149,7 @@ h1.active {
   color: black;
   -webkit-transition: all 1s ease;
   transition: all 1s ease;
+  cursor: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -255,6 +256,7 @@ nav .nav-desc header {
       -ms-flex: 0 1 60rem;
           flex: 0 1 60rem;
   position: relative;
+  overflow: hidden;
 }
 
 .img-container {
@@ -273,7 +275,8 @@ nav .nav-desc header {
 }
 
 .content {
-  margin-right: 10rem;
+  background-color: black;
+  margin-left: 10rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -289,6 +292,11 @@ nav .nav-desc header {
           align-items: flex-start;
 }
 
+.content h2 {
+  position: relative;
+  overflow: hidden;
+}
+
 .content p {
   margin: 3rem 0;
 }
@@ -296,6 +304,28 @@ nav .nav-desc header {
 .content button {
   height: 5rem;
   width: 10rem;
+}
+
+.color-swipe {
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  mix-blend-mode: darken;
+  pointer-events: none;
+}
+
+.forest-color-swipe {
+  background: #567ce4;
+}
+
+.hike-color-swipe {
+  background: #a76ee7;
+}
+
+.fashion-color-swipe {
+  background: #ff8b5d;
 }
 
 .forest-span {
@@ -321,7 +351,7 @@ nav .nav-desc header {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   background: white;
-  color: black;
+  color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -336,5 +366,7 @@ nav .nav-desc header {
       -ms-flex-align: center;
           align-items: center;
   pointer-events: none;
+  -webkit-transition: color .5s ease;
+  transition: color .5s ease;
 }
 /*# sourceMappingURL=styles.css.map */
